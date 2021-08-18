@@ -24,8 +24,12 @@ function resolveImportedPath(path?: number | string) {
 
 // MARK: - General API
 
-async function setupPlayer(options: PlayerOptions = {}): Promise<void> {
+async function setupPlayer(options: PlayerOptions = {}): Promise<boolean> {
   return TrackPlayer.setupPlayer(options || {})
+}
+
+function isServiceRunning(): Promise<void> {
+  return TrackPlayer.isServiceRunning()
 }
 
 function destroy() {
@@ -221,6 +225,7 @@ export * from './interfaces'
 export default {
   // MARK: - General API
   setupPlayer,
+  isServiceRunning,
   destroy,
   registerPlaybackService,
   addEventListener,

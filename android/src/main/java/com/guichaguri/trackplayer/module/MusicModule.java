@@ -3,13 +3,13 @@ package com.guichaguri.trackplayer.module;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.media.RatingCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.facebook.react.bridge.*;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Player;
@@ -163,6 +163,11 @@ public class MusicModule extends ReactContextBaseJavaModule implements ServiceCo
         final Bundle options = Arguments.toBundle(data);
 
         waitForConnection(() -> binder.setupPlayer(options, promise));
+    }
+
+   @ReactMethod
+    public void isServiceRunning(final Promise promise) {
+        promise.resolve(binder != null);
     }
 
     @ReactMethod
