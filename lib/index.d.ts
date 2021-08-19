@@ -1,5 +1,6 @@
 import { MetadataOptions, PlayerOptions, Event, Track, State, TrackMetadataBase, NowPlayingMetadata } from './interfaces';
 declare function setupPlayer(options?: PlayerOptions): Promise<void>;
+declare function isServiceRunning(): Promise<boolean>;
 declare function destroy(): any;
 declare type ServiceHandler = () => Promise<void>;
 declare function registerPlaybackService(factory: () => ServiceHandler): void;
@@ -34,6 +35,7 @@ export * from './hooks';
 export * from './interfaces';
 declare const _default: {
     setupPlayer: typeof setupPlayer;
+    isServiceRunning: typeof isServiceRunning;
     destroy: typeof destroy;
     registerPlaybackService: typeof registerPlaybackService;
     addEventListener: typeof addEventListener;
