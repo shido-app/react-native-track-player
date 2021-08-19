@@ -6,6 +6,8 @@ build/
 DerivedData/
 package-lock.json
 .idea/
+docs
+example
 
 # Android
 
